@@ -1,0 +1,81 @@
+
+<div class="container">
+
+<div id="form">
+    <h3 >Add Product</h3><br>
+    <form #prodcutFrom="ngForm" (ngSubmit)="productAdd(prodcutFrom)">
+      <div id="f1">
+        <small *ngIf="name.invalid &&name.touched" style="color: red; ">Required</small><br>
+    <input type="text" ngModel name="productName" placeholder="Enter Product Name" #name="ngModel" required [ngClass]="{ 'red-border': name.touched &&name.invalid}"><br><br>
+    <small *ngIf="price.invalid &&price.touched" style="color: red;">Required</small><br>
+    <input type="number" ngModel name="productPrice" placeholder="Enter Product Price" #price="ngModel" required [ngClass]="{ 'red-border': price.touched &&price.invalid}"><br><br>
+    <small *ngIf="dis.invalid &&dis.touched" style="color: red;">Required</small><br>
+    <input type="text" ngModel name="productDescription" placeholder="Enter Product Description" #dis="ngModel" required [ngClass]="{ 'red-border': dis.touched &&dis.invalid}"><br><br>
+    </div>
+    <div id="f2">
+      <small *ngIf="qun.invalid &&qun.touched" style="color: red;;">Required</small><br>
+    <input type="number" ngModel name="productQuantity" placeholder="Enter Product Quantity" #qun="ngModel" required [ngClass]="{ 'red-border': qun.touched &&qun.invalid}"><br><br>
+    <small *ngIf="sel.invalid &&sel.touched" style="color: red;">Required</small><br>
+    <input type="text" ngModel name="productSeller" placeholder="Enter Product Seller" #sel="ngModel" required [ngClass]="{ 'red-border': sel.touched &&sel.invalid}"><br><br>
+    <label>
+        <input type="radio" ngModel name="productStatus" value="enable" checked style="position: relative; right: 20mm;"><h4 style="position: relative;bottom: 14.5mm; font-family: Verdana, Geneva, Tahoma, sans-serif; color: gray;">Enabled</h4> 
+      </label>
+      <label>
+        <input type="radio" ngModel name="productStatus" value="disable" style="position: relative; right: 20mm; bottom: 15mm;"><h4 style="position: relative;bottom: 30mm; font-family: Verdana, Geneva, Tahoma, sans-serif; color: gray;">Disabled</h4> 
+      </label>
+    </div>
+      <div id="f3">
+      <select ngModel name="category_id" style="width: 50mm; height: 7.5mm; font-family: Verdana, Geneva, Tahoma, sans-serif;">
+        <option value="" selected>Select Category</option>
+        <option *ngFor="let category of categories" [value]="category.category_id">{{ category.categoryName }}</option>
+      </select><br><br>
+      <input type="file"(change)="onImageChange($event)" accept=".jpg, .jpeg, .png"><br><br>
+     <button id="buttons" type="submit" [disabled]="!prodcutFrom.valid">Add Product</button>
+     </div>
+    </form>
+    </div>
+    <div id="instructions">
+        <h2 > General Information For Admin</h2><br>
+        <ul>
+            <li><b>Enable/Disable CheckBox will allows the product to show/hide itself from Customers</b></li><br>
+            <li><b>Medicne Seller- Cipla, Dr. Reddy, Intas, Sun Pharma, Zydus, etc</b></li><br>
+            <li><b>Description Example- Paracetamol, also known as acetaminophen, 
+              is a common over-the-counter pain reliever and fever reducer. It works by blocking pain signals in the brain,
+               offering relief without significant anti-inflammatory properties.</b></li><br>
+        </ul>
+    </div>
+  </div>
+  <div class="container2">
+<div id="ediv">
+    <h1 style="position: relative; left: 150mm; font-family: Verdana, Geneva, Tahoma, sans-serif; font-size: 7mm; color: rgb(62, 88, 112);"><b>Edit Products</b></h1>
+    <table style="border: 2px solid rgb(36, 41, 102);">
+      <tr>
+        <td id="td1">Id</td>
+        <td id="td1">Image</td>
+        <td id="td1">Name</td>
+        <td id="td1">Seller</td>
+        <td id="td1">Price</td>
+        <td id="td1">Quantity</td>
+        <td id="td1">Category</td>
+        <td id="td1">Status</td>
+        <td id="td1">Edit</td>
+        <td id="td1">Delete</td>
+      </tr>
+    </table>
+    <table *ngFor="let product of products">
+      <tr>
+        <td id="td2">{{product.product_id}}</td>
+        <td id="td2" style="width: 60mm;"><img style="width: 20mm; height: 20mm;" id="b" [src]="getBase64Image(product.imageData)" alt="Product Image" /></td>
+        <td id="td2">{{product.productName}}</td>
+        <td id="td2"> {{ product.productSeller }}</td>
+        <td id="td2">{{ product.productPrice }}</td>
+        <td id="td2">{{ product.productQuantity }}</td>
+        <td *ngFor="let category of categories">
+          <p *ngIf="category.category_id === product.category_id">{{ category.categoryName }}</p>
+        </td>
+        <td id="td2">{{ product.productStatus }}<br><button style="background-color: rgb(255, 255, 58); width: 20mm; height: 12mm; border-radius:6mm;" (click)="changeStatus(product.product_id)">Change Status</button></td>
+        <td id="td2"><button id="edit" (click)="editProduct(product.product_id)">Edit</button></td>
+        <td id="td2"><button id="delete" (click)="deleteProduct(product.product_id)">Delete</button></td>
+      </tr>
+    </table><button id="buttonr" (click)="goBack()">Go Back</button></div>
+  </div>

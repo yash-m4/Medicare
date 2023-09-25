@@ -1,0 +1,43 @@
+<div class="container" *ngIf="selectedProducts.length > 0">
+    <div class="order-summary">
+      <h1>Order Summary</h1>
+      <div class="product-row" *ngFor="let selectedProduct of selectedProducts">
+        <div class="product" *ngFor="let product of products">
+          <div *ngIf="selectedProduct.productId === product.product_id">
+            <img id='imga' [src]="getBase64Image(product.imageData)" alt="Product Image" class="product-image" />
+            <div class="product-details">
+              <table>
+                <tr>
+                  <th></th>
+                  <th><p><strong>Name:</strong></p></th>
+                  <th><p><strong>Price:</strong></p></th>
+                  <th><p><strong>Cart Quantity:</strong></p></th>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td>{{ product.productName }}</td>
+                  <td>{{ product.productPrice * selectedProduct.cartQuantity }}</td>
+                  <td>{{ selectedProduct.cartQuantity }}</td>
+                </tr>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="total-amount">
+        <p><strong>Total Amount:</strong> {{ calculateTotalAmount() }}</p>
+      </div>
+      <div>
+        <p><strong>Contact Details</strong>
+          <p>{{name}}</p>
+          <p>{{address}}</p>
+          <p>{{phone}}</p>
+      </div>
+            <button id="shopmore" (click)="logout()">Shop More</button>
+      <div class="delivery-status">
+        <p>Delivery Status: Your order is being processed and will be delivered soon.</p>
+      </div>
+    </div>
+  </div>
+  

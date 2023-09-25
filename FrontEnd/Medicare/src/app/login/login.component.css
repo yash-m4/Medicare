@@ -1,0 +1,73 @@
+#outer{
+    height: 112mm;
+}
+#login{
+    position: relative;
+    width: 140mm;
+    height: 12mm;
+    background-color: rgb(58, 126, 253);
+    margin-left: 100mm;
+    margin-top: 10mm;
+   
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 4mm;
+    color: whitesmoke;
+    padding-left: 10mm;
+    
+    
+}
+h2{
+    position: relative;
+    top: 2mm;
+}
+form{
+    border: 1px solid black;
+    height: 75mm;
+    width: 149.5mm;
+    margin-left: 100mm;
+}
+
+input{
+    width: 80mm;
+    height: 10mm;
+    text-align: center;
+    font-size: 4mm;
+}
+#input1{
+ margin-left: 33mm;
+    margin-top: 10mm;
+}
+#input2{
+    margin-left: 33mm;
+    margin-top: 2.5mm;
+}
+button{
+    width: 25mm;
+    height: 10mm;
+    background-color: rgb(63, 63, 224);
+    font-family: monospace;
+    text-align: center;
+    color: whitesmoke;
+    border-radius: 2.5mm;
+    margin-left: 60mm;
+    margin-top: 2.5mm;
+    font-size: 4mm;
+}
+#register{
+    position: relative;
+    display: flex;
+    left: 190mm;
+    bottom: 15mm;
+}
+h3{
+    font-family: monospace;
+    font-size: 4mm;
+    color: gray;
+}
+a{
+    position: relative;
+    left: 5mm;
+    top: 4mm;
+    font-family: monospace;
+    font-size: 4mm;
+}

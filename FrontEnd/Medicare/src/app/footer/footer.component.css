@@ -1,0 +1,13 @@
+footer{
+    background-color: rgb(203, 229, 255);
+    height: 21mm;
+}
+p{
+    position: relative;
+    bottom: 3mm;
+    font-family: monospace;
+    font-size: x-small;
+}
+h3{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}

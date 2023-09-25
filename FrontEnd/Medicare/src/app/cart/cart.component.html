@@ -1,0 +1,64 @@
+<div class="container" *ngIf="productIds.length > 0">
+    <div class="product-row" *ngFor="let productId of productIds;">
+      <div class="product" *ngFor="let product of products;">
+        <div *ngIf="productId == product.product_id">
+        <img id='imga' [src]="getBase64Image(product.imageData)" alt="Product Image" class="product-image" />
+        <div class="product-details">
+          <table>
+            <tr>
+              <th></th>
+              <th><p><strong>Name:</strong></p></th>
+              <th><p><strong>Seller:</strong></p></th>
+              <th><p><strong>Price:</strong></p></th>
+              <th><p><strong>Quantity InStock:</strong></p></th>
+              <th>Enter Quantity to Buy</th>
+            </tr>
+            <tr>
+              <td></td>
+              <td>{{ product.productName }}</td>
+              <td>{{ product.productSeller }}</td>
+              <td>{{ product.productPrice }}</td>
+              <td>{{ product.productQuantity }}</td>
+              <td><form>
+                <input style="width: 10mm; border: 1px solid rgb(187, 187, 187);" 
+                type="number" 
+                name="cartQuantity" 
+                [(ngModel)]="product.cartQuantity" 
+                (ngModelChange)="onCartQuantityChange(product)"
+                min="1" 
+                [max]="product.productQuantity" 
+                pattern="[0-9]*" 
+                required  
+         />
+         
+</form>
+              </td>
+            </tr>
+          </table>
+          
+          
+          
+          
+        
+          
+         </div> 
+        </div>
+      </div>
+    </div>
+    <!-- <div *ngIf="selectedProducts.length > 0">
+      <h2>Selected Products:</h2>
+      <ul>
+        <li *ngFor="let product of selectedProducts">
+          Product ID: {{ product.productId }}, Cart Quantity: {{ product.cartQuantity }}
+        </li>
+      </ul>
+    </div> -->
+    <button style="background-color: rgb(0, 194, 253);border-radius: 2.5mm; width: 50mm; height: 10mm; text-align: center; margin-left: 150mm;" 
+        (click)="payment()" 
+        [disabled]="!formIsValid"><b>Proceed to Payment</b>
+</button>
+ </div>
+  <div *ngIf="productIds.length === 0">
+    <div style="height: 120mm; text-align: center;"><br><br><br><br><br><br><br><br><h1>Add products to your cart first.</h1></div>
+  </div>
+  

@@ -1,0 +1,19 @@
+<div class="container">
+  <div class="product-row" *ngFor="let product of products;">
+    <div class="product">
+      <img id='imga' [src]="getBase64Image(product.imageData)" alt="Product Image" class="product-image" />
+      <div class="product-details">
+        <p><strong>Product ID:</strong> {{ product.product_id }}</p>
+        <p><strong>Name:</strong> {{ product.productName }}</p>
+        <p><strong>Seller:</strong> {{ product.productSeller }}</p>
+        <p><strong>Price:</strong> {{ product.productPrice }}</p>
+        <p><strong>Description:</strong> {{ product.productDescription }}</p>
+        <p><strong>Quantity:</strong> {{ product.productQuantity }}</p>
+        <div *ngFor="let category of categories">
+          <p *ngIf="category.category_id === product.category_id"><strong>Category:</strong> {{ category.categoryName }}</p>
+        </div>
+        <p><strong>Status:</strong> {{ product.productStatus }}</p>
+      </div>
+    </div>
+  </div>
+</div>

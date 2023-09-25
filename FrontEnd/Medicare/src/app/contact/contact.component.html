@@ -1,0 +1,28 @@
+<div class="container">
+    <h1>Contact Us</h1>
+    <div class="contact-info">
+      <p><strong>Address:</strong> 1234 Healthcare Street, Delhi, India</p>
+      <p><strong>Email:</strong> info@medicare.com</p>
+      <p><strong>Phone:</strong> +91-123-456-7890</p>
+    </div>
+    <h2>Send us a message:</h2>
+    <form #contak="ngForm" (submit)="submitForm()">
+      <div class="form-group">
+        <label for="name">Name:</label><small *ngIf="user.invalid &&user.touched" style="color: red;">Required</small><br>
+        <input type="text" id="name" name="name" class="form-control" required ngModel #user="ngModel" required [ngClass]="{ 'red-border': user.touched &&user.invalid}">
+      </div>
+      <div class="form-group">
+        <label for="email">Email:</label><small *ngIf="user.invalid &&user.touched" style="color: red;">Required</small><br>
+        <input type="email" id="email" name="email" class="form-control" required ngModel #user="ngModel" required [ngClass]="{ 'red-border': user.touched &&user.invalid}">
+      </div>
+      <div class="form-group">
+        <label for="message">Message:</label><small *ngIf="user.invalid &&user.touched" style="color: red;">Required</small><br>
+        <textarea id="message" name="message" rows="4" class="form-control" required ngModel #user="ngModel" required [ngClass]="{ 'red-border': user.touched &&user.invalid}"></textarea>
+      </div>
+      <button type="submit" class="btn btn-primary" [disabled]="!contak.valid">Submit</button>
+    </form>
+  </div>
+  <div class="alert" *ngIf="showAlert">
+    Form submitted successfully. We will contact you soon.
+  </div>
+  

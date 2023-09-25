@@ -1,0 +1,31 @@
+<div id="form">
+<h3>Add Category</h3><br>
+<form #categoryFrom="ngForm" (ngSubmit)="categoryAdd(categoryFrom)">
+   <legend><b>Enter Category Name</b></legend> <small *ngIf="cat.invalid &&cat.touched" style="color: red;">Required</small><br>
+   <input type="text" ngModel name="categoryName" placeholder="Ex- Analesics, PainKillers, etc" #cat="ngModel" required [ngClass]="{ 'red-border': cat.touched &&cat.invalid}"><br><br>
+ <button id="buttons" type="submit" [disabled]="!categoryFrom.valid">Add This Category</button>
+</form>
+</div>
+<div id="instructions">
+    <h2>Some Examples of Medicine Category</h2>
+    <ul>
+        <li><b>Analgesics</b></li><br>
+        <li><b>Antipyretics</b></li><br>
+        <li><b>Antibiotics</b></li><br>
+        <li><b>Antiinflametry</b></li><br>
+        <li><b>Diclofenics</b></li><br>
+        <li><b>Etc</b></li>
+    </ul>
+</div>
+<div id="tablediv" *ngIf="categories.length>0">
+    <table id="tableh"><tr><td><b>Category Id</b> </td>
+        <td><b>Category Name</b> </td>
+    <td><b>Delete Category</b></td></tr></table>
+<table *ngFor="let category of categories">
+    
+       <tr> <td>{{category.category_id}}</td>
+    
+        <td>{{category.categoryName}}</td>
+    <td><button id="cbutton" (click)="deleteCategory(category.category_id)">DELETE</button></td></tr>
+</table></div>
+<button id="buttong" (click)="goBack()">Go Back</button>

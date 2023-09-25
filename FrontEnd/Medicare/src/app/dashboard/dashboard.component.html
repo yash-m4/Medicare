@@ -1,0 +1,37 @@
+<form style="padding-left: 120mm; position: relative;" #productSearchForm="ngForm" (ngSubmit)="searchProduct(productSearchForm)">
+    <input style="width: 100mm; height: 9mm; text-align: center;" type="text" placeholder="Search Product Here" name="key" ngModel>
+    <button style="width: 25mm; height: 10mm; border-radius: 1mm; background-color: rgb(39, 119, 211); font-family: Verdana, Geneva, Tahoma, sans-serif; color: white;" type="submit">Search</button>
+</form>
+   <div class="slideshow-container">
+      <div *ngFor="let imageUrl of imageUrls; let i = index" class="mySlides fade" [ngClass]="{ 'active': i === currentImageIndex }">
+        <img [src]="imageUrl" alt="Slide {{ i + 1 }}" class="slideshow-image">
+      </div>
+    </div>
+<button *ngIf="showReinitializeButton" (click)="ngOnInit()" style="width: 50mm; height: 7.5mm; text-align: center; font-family: Verdana, Geneva, Tahoma, sans-serif;margin-left: 10mm; margin-bottom: 2.5mm;border: none; width: 60mm; height: 10mm; background-color: rgb(171, 217, 243); font-family: monospace; text-align: center; font-size: 5mm;">View All Products</button>
+ <div class="category" style="display: flex; flex-basis: calc(20% - 20px);flex-wrap: wrap; justify-content: space-between;">
+   <div *ngFor="let cat of categories">
+    <button (click)="selectCategory(cat.category_id)" style="margin-left: 10mm; margin-top: 2mm;margin-bottom: 2mm; margin-right: 10mm; border: none; width: 60mm; height: 10mm; background-color: whitesmoke; font-family: monospace; text-align: center; font-size: 5mm; position: relative;">{{cat.categoryName}}</button>
+   </div>
+     </div>
+  
+<div class="container">
+ 
+    <div class="product-row" *ngFor="let product of products;">
+      <div class="product">
+        <img id='imga' [src]="getBase64Image(product.imageData)" alt="Product Image" class="product-image" />
+        <div class="product-details">
+          
+          <p><strong>Name:</strong> {{ product.productName }}</p>
+          <p><strong>Seller:</strong> {{ product.productSeller }}</p>
+          <p><strong>Price:</strong> {{ product.productPrice }} ₹</p>
+          
+          
+          <div *ngFor="let category of categories">
+            <p *ngIf="category.category_id === product.category_id"><strong>Category:</strong> {{ category.categoryName }}</p>
+          </div>
+        
+         <button id="buyb" routerLink="login">Buy Now</button>
+        </div>
+      </div>
+    </div>
+  </div>

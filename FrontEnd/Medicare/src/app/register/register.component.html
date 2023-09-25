@@ -1,0 +1,18 @@
+<div id="outer">
+    <div id="login"><h2>Sign Up</h2></div>
+    <div id="form">
+        <form #registerForm="ngForm" (ngSubmit)="registersubmit(registerForm)">
+            <small *ngIf="email.invalid &&email.touched" style="color: red; position: relative; top: 10mm; left: 33mm;">Required</small><br>
+            <input id="input1" type="text" ngModel placeholder="Enter Email Id" name="email" #email="ngModel" required [ngClass]="{ 'red-border': email.touched &&email.invalid}"><br>
+            <small *ngIf="user.invalid &&user.touched" style="color: red; position: relative; left: 33mm;  top: 2.5mm;">Required</small><br>
+            <input id="input2" type="text" ngModel placeholder="Create Username" name="username" #user="ngModel" required [ngClass]="{ 'red-border': user.touched &&user.invalid}"><br>
+            <small *ngIf="pass.invalid &&pass.touched" style="color: red;  position: relative; left: 33mm; top: 2.5mm;">Required</small><br>
+            <input id="input3" type="text" ngModel placeholder="Create Password" name="password" #pass="ngModel" required [ngClass]="{ 'red-border': pass.touched &&pass.invalid}"><br>
+            <button type="submit" [disabled]="!registerForm.valid">Sign Up</button>
+        </form>
+    </div>
+    <div id="register">
+        <h3>Account already exixts ? </h3>
+        <a routerLink="/login">Login Here</a>
+    </div>
+    </div>

@@ -1,0 +1,24 @@
+
+<div id="username" *ngIf="username">
+    <h2>Hello, {{username}}</h2>
+    <button id="logout" (click)="logout()">LogOut</button>
+  </div>
+  <table>
+    <tr>
+        <td><a (click)="manageCategory()">MANAGE CATEGORIES</a></td>
+        <td><a (click)="manageProduct()">MANAGE PRODUCTS</a></td>
+        <td><a (click)="viewProducts()">VIEW PRODUCTS</a></td>
+    </tr>
+</table>
+<div id="instruction">
+    <h3>Please go through these instructions before editing/adding any products</h3>
+    <br>
+    <ul>
+        <li><b>It is advisable for first-time users of admin functionalities to go through 'MANAGE CATEGORIES' 
+            before adding any products. When an ADMIN adds any products, the system asks to which category this
+             product belongs. Therefore, it is recommended to create some categories first before proceeding
+              with adding products.</b></li><br><br>
+        <li><b>When editing products under the 'MANAGE PRODUCTS' tab, it is advisable to
+             edit/enter all the details of the product.</b></li>
+    </ul>
+</div>

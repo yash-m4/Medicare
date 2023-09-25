@@ -1,0 +1,33 @@
+nav {
+    background-color: rgb(241, 248, 255);
+    height: 18mm;
+   position: relative;
+   bottom: 5mm;  
+}
+#heading{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    padding-top: 4mm;
+    padding-bottom: 4mm;
+    padding-left: 15mm;
+    color: rgb(94, 94, 94);
+}
+td{
+    padding-left: 7.5mm;
+    padding-right: 7.5mm;
+}
+#tableOne{
+    position: relative;
+    bottom: 16mm;
+    left: 90mm;
+}
+#tableTwo{
+    position: relative;
+    bottom: 23.5mm;
+    left: 270mm;
+}
+a{
+    font-family: monospace;
+    font-size: 5mm;
+    color: rgb(80, 80, 80);
+    text-decoration: none;
+}

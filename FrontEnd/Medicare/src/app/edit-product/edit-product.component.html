@@ -1,0 +1,54 @@
+<h1 style="font-family: monospace; font-size: 10mm; position: relative; left: 20mm; color: rgb(36, 45, 124);">Edit this Product</h1>
+<br>
+<div class="container">
+<div NgIf="product">
+    <div id="one">
+    <p><b>Name: </b>{{product.productName}}</p>
+    <p><b>Price: </b>{{product.productPrice}}</p>
+    <p><b>Description: </b>{{product.productDescription}}</p>
+    
+<div *ngFor="let category of categories">
+        <p *ngIf="category.category_id === product.category_id"><b>Category: </b>{{ category.categoryName }}</p>
+    </div>
+    <p><b>Image: </b></p>
+    <img style="width: 40mm; height: 40mm;" id="b" [src]="getBase64Image(product.imageData)" alt="Product Image" />
+</div>
+<div id="two">
+    <p><b>Quantity: </b>{{product.productQuantity}}</p>
+    <p><b>Seller: </b>{{product.productSeller}}</p>
+    <p><b>Status: </b>{{product.productStatus}}</p>
+    
+    
+   </div>   
+    
+</div>
+<div id="form">
+    <form #prodcutFrom="ngForm" (ngSubmit)="productEdit(prodcutFrom)">
+        <div id="f1">
+      <input type="text" ngModel name="productName" placeholder="Enter New Name"><br><br>
+      <input type="number" ngModel name="productPrice" placeholder="Enter New Price"><br><br>
+      <input type="text" ngModel name="productDescription" placeholder="Enter New Description"><br><br>
+      </div>
+      <div id="f2">
+      <input type="number" ngModel name="productQuantity" placeholder="Enter New Quantity"><br><br>
+      <input type="text" ngModel name="productSeller" placeholder="Enter New Seller"><br><br>
+      <label>
+          <input type="radio" ngModel name="productStatus" value="enable" checked style="position: relative; right: 20mm;"><h4 style="position: relative;bottom: 14.5mm; font-family: Verdana, Geneva, Tahoma, sans-serif; color: gray;">Enabled</h4> 
+        </label>
+        <label>
+          <input type="radio" ngModel name="productStatus" value="disable" style="position: relative; right: 20mm; bottom: 15mm;"><h4 style="position: relative;bottom: 30mm; font-family: Verdana, Geneva, Tahoma, sans-serif; color: gray;">Disabled</h4> 
+        </label>
+      </div>
+        <div id="f3">
+        <select ngModel name="category_id" style="width: 50mm; height: 7.5mm; font-family: Verdana, Geneva, Tahoma, sans-serif;">
+          <option value="" selected>Select New Category</option>
+          <option *ngFor="let category of categories" [value]="category.category_id">{{ category.categoryName }}</option>
+        </select><br><br>
+        <input type="file"(change)="onImageChange($event)" accept=".jpg, .jpeg, .png"><br><br>
+       <button id="buttons" type="submit">Edit Product</button>
+       <button id="buttonr" (click)="goBack()">Go Back</button>
+       </div>
+      </form>
+      
+</div>
+</div>

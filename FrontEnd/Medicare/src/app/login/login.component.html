@@ -1,0 +1,18 @@
+
+<div id="outer">
+<div id="login"><h2>Login</h2></div>
+<div id="form">
+    <form #loginForm="ngForm" (ngSubmit)="loginsubmit(loginForm)">
+       <small *ngIf="user.invalid &&user.touched" style="color: red; position: relative; top: 10mm; left: 33mm;">Required</small><br>
+        <input id="input1" type="text" ngModel placeholder="Enter Username" name="username" #user="ngModel" required [ngClass]="{ 'red-border': user.touched &&user.invalid}"><br><br>
+        <small *ngIf="pass.invalid &&pass.touched" style="color: red; position: relative; top: 2.5mm; left: 33mm;">Required</small><br>
+        <input id="input2" type="text" ngModel placeholder="Enter Password" name="password" #pass="ngModel" required [ngClass]="{ 'red-border': user.touched &&user.invalid}"><br><br>
+        <button type="submit" [disabled]="!loginForm.valid">Login</button>
+    </form>
+</div>
+<div id="register">
+    <h3>New User ? </h3>
+    <a routerLink="/register">Sign Up Here</a>
+    
+</div>
+</div>

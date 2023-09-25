@@ -1,0 +1,16 @@
+<nav>
+    <h1 id="heading">M E D I C A R E</h1>
+    <table id="tableOne">
+      <tr>
+        <td><a routerLink="/aboutUs">ABOUT US</a></td>
+        <td><a routerLink="/contact">CONTACT</a></td>
+      </tr>
+    </table>
+    <table id="tableTwo">
+      <tr>
+        <td *ngIf="!isLoggedIn()"><a routerLink="/login">LOGIN</a></td>
+        <td *ngIf="!isLoggedIn()"><a routerLink="/register">SIGN UP</a></td>
+      </tr>
+    </table>
+  </nav>
+  

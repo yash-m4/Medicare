@@ -1,0 +1,82 @@
+#instructions{
+font-family: Verdana, Geneva, Tahoma, sans-serif;
+text-align: center;
+width: 150mm;
+position: relative;
+left: 200mm;
+bottom: 75mm;
+color: gray;
+}
+#form{
+     position: relative;
+    bottom: 10mm;
+    padding-top: 15mm;
+text-align: center;
+width: 130mm;
+
+}
+ul{
+    list-style: none;   
+}
+input{
+   
+    width: 80mm;
+    height: 10mm;
+    font-family: monospace;
+    font-size: 4mm;
+    text-align: center;
+}
+#buttons{
+    width: 30mm;
+    height: 7.5;
+    text-align: center;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    background-color: rgb(70, 70, 221);
+    color: aliceblue;
+    border-radius: 2.5mm;
+}
+legend{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+h3{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 7mm;
+    color: rgb(41, 56, 85);
+}
+#tableh{
+    border: 3px solid rgb(38, 48, 134);
+}
+td{
+    text-align: center;
+    font-family: monospace;
+    font-size: 5mm;
+    width:80mm ;
+    height: 15mm; 
+}
+#tablediv{
+   position: relative;
+   bottom: 50mm;
+   border: 2px solid rgb(99, 104, 150);
+   width: 245mm;
+   left: 50mm;
+   margin-bottom: -20mm;
+}
+#cbutton{
+    width: 30mm;
+    height: 7.5mm;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    color: azure;
+    background-color: rgb(226, 60, 60);
+    border-radius: 1.5mm;
+}
+#buttong{
+    width: 35mm;
+    height: 7.5mm;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    color: azure;
+    background-color: rgb(38, 165, 49);
+    border-radius: 1.5mm;
+    position: relative;
+    left: 155mm;
+    bottom: 10mm;
+}

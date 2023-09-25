@@ -1,0 +1,54 @@
+.order-summary {
+  border: 1px solid #ccc;
+  padding: 20px;
+  margin: 20px;
+  background-color: #f9f9f9;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.product-row {
+  margin-top: 20px;
+}
+
+.product-details {
+  margin-left: 20px;
+}
+
+.product-image {
+  width: 100px; /* Adjust as needed */
+  height: 100px; /* Adjust as needed */
+  margin-right: 20px;
+  float: left;
+}
+
+th, td {
+  padding: 10px; /* Increased padding for more space */
+  text-align: left;
+}
+
+th {
+  font-weight: bold;
+}
+
+.total-amount {
+  margin-top: 20px;
+  padding: 10px;
+  text-align: right;
+}
+
+.delivery-status {
+  margin-top: 20px;
+  padding: 10px;
+  background-color: #e6f7ff;
+  border: 1px solid #66b3ff;
+  color: #0073e6;
+}
+#shopmore{
+  width: 30mm;
+  height: 7.5mm;
+  background-color: #0073e6;
+  border-radius: 1mm;
+  text-align: center;
+  font-family: monospace;
+  color: white;
+}
